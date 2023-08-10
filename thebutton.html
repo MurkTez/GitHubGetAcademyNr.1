@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Button</title>
+    <style>
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            background-color: black;
+        }
+
+        h1 {
+            color: blueviolet;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            color: antiquewhite;
+            border-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Magical Button</h1>
+
+    <button id="textButton" onclick="changeButtonText()">Click Me</button>
+
+    <script>
+        var button = document.getElementById("textButton");
+        var isTextChanged = false;
+
+        function changeButtonText() {
+            if (isTextChanged) {
+                button.innerHTML = "Click Me";
+                isTextChanged = false;
+            } else {
+                button.innerHTML = "Magic!";
+                isTextChanged = true;
+            }
+        }
+    </script>
+</body>
+</html>
