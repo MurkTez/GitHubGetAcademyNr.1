@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coin Flip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: whitesmoke;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .coin-flip-container {
+            width: 100px;
+            height: 100px;
+            perspective: 1000px;
+            display: inline-block;
+        }
+
+        .coin-button {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 50%;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:gold;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .coin-button:hover {
+            background-color: goldenrod;
+        }
+
+        .coin-flip-animation {
+            animation: flip-animation 2s ease-in-out;
+        }
+
+        @keyframes flip-animation {
+            0%, 100% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Heads or Tails?</h1>
+
+    <div class="coin-flip-container">
+        <button class="coin-button" id="coinButton" onclick="flipCoin()">Flip</button>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        function flipCoin() {
+            var randomNumber = Math.random();
+            var resultElement = document.getElementById("result");
+            var coinButton = document.getElementById("coinButton");
+
+            coinButton.classList.add("coin-flip-animation");
+
+            setTimeout(function() {
+                coinButton.classList.remove("coin-flip-animation");
+                if (randomNumber < 0.5) {
+                    coinButton.textContent = "Heads!";
+                } else {
+                    coinButton.textContent = "Tails!";
+                }
+            }, 2000); //NTS: Delay to finish animation
+        }
+    </script>
+</body>
+</html>
